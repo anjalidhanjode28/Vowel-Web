@@ -31,7 +31,7 @@ export const Cart = () => {
     try {
 
       console.log(con, id)
-      fetch(`http://localhost:8080/cart/update/${id}?q=${con}`, {
+      fetch(`https://vowel-ba6l.onrender.com/cart/update/${id}?q=${con}`, {
         method: "put",
         headers: {
           "Content-Type": "application/json",

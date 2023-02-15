@@ -9,7 +9,7 @@ const connection = () =>{
     })
 }
 
-mongoose.set("strictQuery", false)
+// mongoose.set("strictQuery", false)
 
 module.exports = {
     connection

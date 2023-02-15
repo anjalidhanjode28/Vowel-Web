@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const getData = async (page = 1) => {
   try {
     let res = await fetch(
-      `http://localhost:8080/product/get/all?limit=9&page=${page}`
+      `https://vowel-ba6l.onrender.com/product/get/all?limit=9&page=${page}`
     );
 
     let data = await res.json();
@@ -27,7 +27,7 @@ export const Home = () => {
   const handleAdd = async (id) => {
     
       try {
-       let res =  await fetch(`http://localhost:8080/cart/add/${id}`, {
+       let res =  await fetch(`https://vowel-ba6l.onrender.com/cart/add/${id}`, {
         method : "post",
         headers : {
           "Content-Type": "application/json",

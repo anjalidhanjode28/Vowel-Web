@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 // import { url } from "../slices/api";
 
 const PayButton = ({ cartItems }) => {
-    let url = "http://localhost:8080"
+    let url = "https://vowel-ba6l.onrender.com"
   const user = useSelector((state) => state.AuthReducer.token);
   const handleCheckout = () => {
     axios
