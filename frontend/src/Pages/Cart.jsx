@@ -18,7 +18,7 @@ export const Cart = () => {
 
   const getCartData = () => {
 
-    fetch("http://localhost:8080/cart/get", {
+    fetch("https://vowel-ba6l.onrender.com/cart/get", {
       headers: { "auth": token }
     }).then((res) => res.json())
       .then((res) => {
