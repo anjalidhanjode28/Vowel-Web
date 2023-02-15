@@ -83,7 +83,7 @@ const PizzaAdmin = () => {
   const toast = useToast();
   const getAllData = (page = 1) => {
     axios
-      .get(`https://cheerful-lime-firefly.cyclic.app/bookedflight?page=${page}`, {
+      .get(`https://vowel-ba6l.onrender.com/product/get/all?limit=9&page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -95,7 +95,7 @@ const PizzaAdmin = () => {
   };
   const getDataFromCity = () => {
     axios
-      .get(`https://cheerful-lime-firefly.cyclic.app/bookedflight?q=${query}&page=${page}`, {
+      .get(`https://vowel-ba6l.onrender.com/product/get/all?q=${query}&page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -109,7 +109,7 @@ const PizzaAdmin = () => {
   const handleDelete = (id) => {
 
     axios
-      .delete(`https://cheerful-lime-firefly.cyclic.app/bookedflight/delete/${id}`, {
+      .delete(`https://vowel-ba6l.onrender.com/product/delete/${id}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -118,8 +118,8 @@ const PizzaAdmin = () => {
         console.log(res);
         getAllData(page);
         toast({
-          title: "Flight details has been deleted",
-          description: `You successfully deleted Flight details for id: ${id}`,
+          title: "Selected product details has been deleted",
+          description: `You successfully deleted product details for id: ${id}`,
           status: "success",
           duration: 3000,
           isClosable: true,
@@ -128,7 +128,7 @@ const PizzaAdmin = () => {
       .catch((err) => {
         console.error(err);
         toast({
-          title: "Failed to Delete the Flight",
+          title: "Failed to Delete the Product",
           description: `You are not Authorised`,
           status: "error",
           duration: 3000,
@@ -296,7 +296,7 @@ const PizzaAdmin = () => {
               </ModalFooter>
             </ModalContent>
           </Modal>
-          <Link to="/flight">
+          <Link to="/">
             <Button
               bg="#31AE33"
               borderRadius="1rem"
@@ -328,16 +328,12 @@ const PizzaAdmin = () => {
             </Thead>
             <Tbody>
               {data.length > 0 &&
-                data.map((i) => {
+                data.map((i,index) => {
                   return (
-                    <Tr>
-                      <Td>{i.name}</Td>
-                      <Td>{i.from}</Td>
-                      <Td>{i.to}</Td>
-                      <Td>{i.start}</Td>
-                      <Td>{i.end}</Td>
-                      <Td>{i.type}</Td>
-                      <Td>{i.duration}</Td>
+                    <Tr key={i._id}>
+                      <Td>{i.title}</Td>
+                      <Td>{i.image}</Td>
+                      <Td>{i.description}</Td>
                       <Td>{i.price}</Td>
                       <Td>
                         <Button

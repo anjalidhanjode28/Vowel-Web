@@ -78,7 +78,7 @@ const fetchAndUpdateData = async (page = 1) => {
         <div className={style.img}>
           <img src={item.image} />
         </div>
-        <h3>{item.title}</h3>
+        <h3 className={style.title}>{item.title}</h3>
         <p>{item.description}</p>
         <p>Rs. {item.price}</p>
         <button className={style.btn} onClick={() => handleAdd(item._id)}>Add to cart</button>

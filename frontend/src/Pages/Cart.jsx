@@ -77,7 +77,7 @@ export const Cart = () => {
               <div className={style.img}>
                 <img src={item.productId.image} />
               </div>
-              <h3>{item.productId.title}</h3>
+              <h3 className={style.title}>{item.productId.title}</h3>
               <p>{item.productId.description}</p>
               <p>Rs. {item.productId.price}</p>
               <div className={style.flex}>

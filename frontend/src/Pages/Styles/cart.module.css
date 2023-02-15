@@ -72,6 +72,10 @@
  .total {
     margin-top: 40px;
  }
+ .title {
+    font-weight: bold;
+}
+
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
     .home  {
