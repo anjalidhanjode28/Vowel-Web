@@ -6,7 +6,7 @@ export const authlogin = (loginData) => async (dispatch) => {
     dispatch({type : is_loading})
     try {
       console.log(loginData)
-      let res = await fetch(`http://localhost:8080/auth/login`, {
+      let res = await fetch(`https://vowel-ba6l.onrender.com/auth/login`, {
         method : "POST",
         headers : {
             "Content-Type" : "application/json"
@@ -29,7 +29,7 @@ export const authlogin = (loginData) => async (dispatch) => {
   export const authSignup = (signupData) => async (dispatch) =>{
     dispatch({type : is_loading})
    try{
-    let res = await fetch(`http://localhost:8080/auth/signup`, {
+    let res = await fetch(`https://vowel-ba6l.onrender.com/auth/signup`, {
       method : "POST",
       headers : {
           "Content-Type" : "application/json"

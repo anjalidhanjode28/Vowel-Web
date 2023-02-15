@@ -37,11 +37,12 @@ export const Login = () => {
       } else {
         dispatch(authlogin({ email, password }))
           .then((res) => {
+           //console.log(res.payload.token)
             if(res){
               alert("Login Successful")
               navigate("/");
             }else{
-              alert("Invalid Credentials")
+              alert("Its Invalid Credentials")
             }
             
           })

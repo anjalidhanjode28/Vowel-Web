@@ -33,6 +33,7 @@ export const Signup = () => {
       return false;
     } else {
       dispatch(authSignup({username, email, password})).then(res=>{
+        alert("Sigup successful");
             navigate("/login")
           }).catch(err=>{
             console.log(err)
