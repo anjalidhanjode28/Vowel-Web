@@ -28,7 +28,7 @@ const login = async (req, res) =>{
     // create token 
     let token = await jwt.sign({_id : isAuth._id}, process.env.SKEY);
 
-    res.send({msg : "Successfully Login!", token, isAdmin : isAuth.isAdmin});
+    res.send({msg : "Successfully Login!", token, isAdmin : isAuth.isAdmin, id : isAuth._id});
  } catch (error) {
     return res.status(500).send({msg : "Somthing went wrong in login"});
  }

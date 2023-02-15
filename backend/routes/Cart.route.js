@@ -11,7 +11,7 @@ cartRouter.route("/delete/:cartId").delete(VerifyToken, deleteProductCart);
 
 cartRouter.route("/get").get(VerifyToken, getCartProduct);
 
-cartRouter.route("/update/:cartId").patch(VerifyToken, updateCart);
+cartRouter.route("/update/:cartId").put(VerifyToken, updateCart);
 
 
 module.exports = {

@@ -6,7 +6,7 @@ import { Flex,Box,FormControl, FormLabel,Input,Stack,InputGroup,InputRightElemen
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { authlogin } from '../Redux/Auth/action';
-
+import { useSelector } from 'react-redux';
 
 export const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -18,10 +18,15 @@ export const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const location = useLocation();
+
+    const {isAdmin} = useSelector((state) => state.AuthReducer)
     const comingForm = location.state?.form?.pathname || "/";
     
     const handleSubmit = (event) => {
       event.preventDefault();
+      if(isAdmin) {
+        navigate("/admin")
+      }
   
       if (email === "") {
         alert("Please type your Email");
@@ -32,7 +37,7 @@ export const Login = () => {
       } else {
         dispatch(authlogin({ email, password }))
           .then((res) => {
-            if(res.payload.token){
+            if(res){
               alert("Login Successful")
               navigate("/");
             }else{

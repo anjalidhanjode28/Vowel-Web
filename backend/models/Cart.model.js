@@ -14,7 +14,7 @@ const cartSchema = mongoose.Schema({
     ref : "auth"
   },
   count : {
-    type : Boolean,
+    type : Number,
     default : 1
   }
 }, {

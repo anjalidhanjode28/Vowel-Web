@@ -4,9 +4,11 @@ let initialState = {
     isAuth: !!token,
     token: token,
     error: false,
+    isAdmin : false,
     isErrorMsg : null,
     isLoadingLoder : false,
-    isSuccessMsg : null
+    isSuccessMsg : null,
+  
 }
 
 export const authReducer = (state = initialState, { type, payload }) => {
@@ -17,9 +19,11 @@ export const authReducer = (state = initialState, { type, payload }) => {
           ...state,
           isAuth: true,
           token: payload.token,
+           isAdmin : payload.isAdmin,
           error: false,
           isLoadingLoder : false,
-          isSuccessMsg : payload.msg
+          isSuccessMsg : payload.msg,
+        
         };
       }
       case  isMsgFalse:{

@@ -10,6 +10,7 @@ const updateCart = async (req, res) =>{
        }else{
         await cartModel.findByIdAndUpdate({_id : cartId}, {count : cart.count - 1})
        }
+       res.send({msg : "cart update successfully!"})
     } catch (error) {
         return res.status(500).send({msg : "Somthing went wrong in Update Cart Product"});
     }

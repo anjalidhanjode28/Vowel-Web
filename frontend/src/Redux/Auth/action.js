@@ -1,5 +1,5 @@
 import { auth_login, auth_logout, auth_success, auth_error, is_loading } from "./actionType";
-
+import { Navigate } from "react-router-dom";
 
 
 export const authlogin = (loginData) => async (dispatch) => {
@@ -15,9 +15,12 @@ export const authlogin = (loginData) => async (dispatch) => {
       });
       let data = await res.json();
       console.log(data);
-      dispatch({ type: auth_login, payload : {token : data.token, msg : data.msg} });
+      dispatch({ type: auth_login, payload : {token : data.token, msg : data.msg, isAdmin : data.isAdmin } });
       // console.log(res.data);
-    //   return res.data;
+      // return res.data;
+    if(data.isAdmin) {
+     return <Navigate to="/admin" />
+    }
     } catch (error) {
       dispatch({ type: auth_error, payload : { msg : error.msg} });
     }
